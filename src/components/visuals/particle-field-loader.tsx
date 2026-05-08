@@ -29,7 +29,7 @@ function ParticleFieldFallback() {
   return (
     <div className="technical-grid absolute inset-0 opacity-70">
       <div className="fine-dots absolute inset-0 opacity-35" />
-      <div className="absolute left-1/2 top-1/2 h-[34rem] w-[34rem] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[var(--line)] opacity-50" />
+      <div className="absolute left-1/2 top-1/2 h-[34rem] w-[34rem] -translate-x-1/2 -translate-y-1/2 rounded-full border border-(--line) opacity-50" />
     </div>
   );
 }

@@ -438,7 +438,7 @@ export default function Header({
   labels,
 }: Props) {
   const isLight = theme === "light";
-  const textClass = isLight ? "text-[var(--foreground)]" : "text-white";
+  const textClass = isLight ? "text-(--foreground)" : "text-white";
   const hoverClass = isLight ? "hover:text-black/60" : "hover:text-white/75";
   const proposalClass = isLight
     ? "border-black/55 hover:border-black hover:bg-black hover:text-white"
@@ -490,9 +490,9 @@ type Props = {
 export function ContactCta({ contact }: Props) {
   return (
     <section id="proposal" className="px-5 py-24 sm:px-10 md:py-32 lg:px-16">
-      <div className="mx-auto grid max-w-7xl gap-10 border-t border-[var(--line)] pt-10 md:grid-cols-[0.8fr_1.2fr] md:items-end">
+      <div className="mx-auto grid max-w-7xl gap-10 border-t border-(--line) pt-10 md:grid-cols-[0.8fr_1.2fr] md:items-end">
         <div>
-          <p className="font-mono text-xs font-bold uppercase tracking-[0.22em] text-[var(--muted)]">
+          <p className="font-mono text-xs font-bold uppercase tracking-[0.22em] text-(--muted)">
             {contact.label}
           </p>
           <h2 className="mt-4 max-w-xl text-[clamp(2.25rem,5vw,5.7rem)] font-black leading-[0.95] tracking-normal">
@@ -500,12 +500,12 @@ export function ContactCta({ contact }: Props) {
           </h2>
         </div>
         <div className="md:text-right">
-          <p className="ml-auto max-w-xl text-lg font-medium leading-tight text-[var(--muted)] md:text-xl">
+          <p className="ml-auto max-w-xl text-lg font-medium leading-tight text-(--muted) md:text-xl">
             {contact.body}
           </p>
           <a
             href={`mailto:${contact.email}`}
-            className="mt-7 inline-block break-all text-[clamp(2.4rem,6vw,6rem)] font-black leading-none tracking-normal transition hover:text-[var(--pulse)]"
+            className="mt-7 inline-block break-all text-[clamp(2.4rem,6vw,6rem)] font-black leading-none tracking-normal transition hover:text-(--pulse)"
           >
             {contact.email}
           </a>
@@ -571,7 +571,7 @@ function ParticleFieldFallback() {
   return (
     <div className="absolute inset-0 technical-grid opacity-70">
       <div className="absolute inset-0 fine-dots opacity-35" />
-      <div className="absolute left-1/2 top-1/2 h-[34rem] w-[34rem] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[var(--line)] opacity-50" />
+      <div className="absolute left-1/2 top-1/2 h-[34rem] w-[34rem] -translate-x-1/2 -translate-y-1/2 rounded-full border border-(--line) opacity-50" />
     </div>
   );
 }
@@ -737,7 +737,7 @@ export default function Home() {
   const tickerItems = Array.from({ length: 10 }, (_, index) => index);
 
   return (
-    <div className="min-h-screen overflow-hidden bg-[var(--paper)] text-[var(--foreground)]">
+    <div className="min-h-screen overflow-hidden bg-(--paper) text-(--foreground)">
       <Header theme="light" overlay labels={content.nav} />
 
       <main>
@@ -746,37 +746,37 @@ export default function Home() {
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_55%_35%,rgba(255,253,248,0.15),rgba(247,244,238,0.96)_62%)]" />
           <div className="relative z-10 mx-auto grid min-h-[calc(100vh-9rem)] max-w-7xl items-end gap-12 lg:grid-cols-[1.05fr_0.95fr]">
             <div className="pb-20">
-              <p className="font-mono text-xs font-bold uppercase tracking-[0.24em] text-[var(--muted)]">
+              <p className="font-mono text-xs font-bold uppercase tracking-[0.24em] text-(--muted)">
                 {content.home.hero.eyebrow}
               </p>
               <h1 className="mt-5 max-w-4xl text-[clamp(4rem,10vw,10.5rem)] font-black leading-[0.82] tracking-normal">
                 {content.home.hero.title}
               </h1>
-              <p className="mt-8 max-w-2xl text-lg font-medium leading-tight text-[var(--muted)] sm:text-xl">
+              <p className="mt-8 max-w-2xl text-lg font-medium leading-tight text-(--muted) sm:text-xl">
                 {content.home.hero.body}
               </p>
               <div className="mt-8 flex flex-wrap gap-2">
                 {content.home.hero.pills.map((pill) => (
-                  <span key={pill} className="border border-[var(--line)] bg-[var(--paper-soft)] px-3 py-2 font-mono text-xs font-bold uppercase tracking-[0.18em]">
+                  <span key={pill} className="border border-(--line) bg-(--paper-soft) px-3 py-2 font-mono text-xs font-bold uppercase tracking-[0.18em]">
                     {pill}
                   </span>
                 ))}
               </div>
               <div className="mt-10 flex flex-wrap gap-3">
-                <a href="#proposal" className="border border-[var(--foreground)] bg-[var(--foreground)] px-5 py-3 text-sm font-black uppercase text-[var(--paper)] transition hover:bg-transparent hover:text-[var(--foreground)]">
+                <a href="#proposal" className="border border-(--foreground) bg-(--foreground) px-5 py-3 text-sm font-black uppercase text-(--paper) transition hover:bg-transparent hover:text-(--foreground)">
                   {content.home.hero.primaryCta}
                 </a>
-                <Link href="/work" className="border border-[var(--line)] px-5 py-3 text-sm font-black uppercase transition hover:border-[var(--foreground)]">
+                <Link href="/work" className="border border-(--line) px-5 py-3 text-sm font-black uppercase transition hover:border-(--foreground)">
                   {content.home.hero.secondaryCta}
                 </Link>
               </div>
             </div>
 
-            <div className="mb-20 hidden border border-[var(--line)] bg-[var(--paper-soft)]/80 p-4 shadow-[0_30px_90px_rgba(23,21,20,0.12)] lg:block">
+            <div className="mb-20 hidden border border-(--line) bg-(--paper-soft)/80 p-4 shadow-[0_30px_90px_rgba(23,21,20,0.12)] lg:block">
               <Image src="/hero.png" alt="" width={823} height={649} className="aspect-[1.2/1] w-full object-cover object-[33%_28%] grayscale" priority />
             </div>
           </div>
-          <div className="absolute bottom-0 left-0 z-20 w-full border-y border-[var(--foreground)] bg-[var(--foreground)] py-4 text-[var(--paper)]">
+          <div className="absolute bottom-0 left-0 z-20 w-full border-y border-(--foreground) bg-(--foreground) py-4 text-(--paper)">
             <div className="ticker-track flex w-max items-center gap-9 whitespace-nowrap text-lg font-extrabold uppercase tracking-normal sm:text-xl">
               {[...tickerItems, ...tickerItems].map((_, index) => (
                 <span key={index}>{content.home.ticker}</span>
@@ -786,11 +786,11 @@ export default function Home() {
         </section>
 
         <section className="px-5 py-16 sm:px-10 lg:px-16">
-          <div className="mx-auto grid max-w-7xl border-y border-[var(--line)] md:grid-cols-3">
+          <div className="mx-auto grid max-w-7xl border-y border-(--line) md:grid-cols-3">
             {content.home.metrics.map((metric) => (
-              <div key={metric.label} className="border-[var(--line)] py-8 md:border-r md:px-8 md:last:border-r-0">
+              <div key={metric.label} className="border-(--line) py-8 md:border-r md:px-8 md:last:border-r-0">
                 <div className="text-5xl font-black">{metric.value}</div>
-                <p className="mt-2 font-mono text-xs font-bold uppercase tracking-[0.2em] text-[var(--muted)]">
+                <p className="mt-2 font-mono text-xs font-bold uppercase tracking-[0.2em] text-(--muted)">
                   {metric.label}
                 </p>
               </div>
@@ -801,13 +801,13 @@ export default function Home() {
         <section className="px-5 py-12 sm:px-10 lg:px-16">
           <div className="mx-auto grid max-w-7xl gap-4 md:grid-cols-3">
             {content.services.map((service, index) => (
-              <article key={service.slug} className="group border border-[var(--line)] bg-[var(--paper-soft)] p-5 transition hover:-translate-y-1 hover:border-[var(--foreground)]">
+              <article key={service.slug} className="group border border-(--line) bg-(--paper-soft) p-5 transition hover:-translate-y-1 hover:border-(--foreground)">
                 <div className="flex items-start justify-between gap-4">
                   <h2 className="max-w-xs text-3xl font-black leading-none">{service.title}</h2>
-                  <span className="font-mono text-xs font-bold text-[var(--muted)]">0{index + 1}</span>
+                  <span className="font-mono text-xs font-bold text-(--muted)">0{index + 1}</span>
                 </div>
                 <Image src={service.image} alt={service.imageAlt} width={430} height={524} className="mt-8 aspect-[1.05/1] w-full object-cover grayscale transition group-hover:grayscale-0" />
-                <p className="mt-5 text-base font-medium leading-tight text-[var(--muted)]">{service.text}</p>
+                <p className="mt-5 text-base font-medium leading-tight text-(--muted)">{service.text}</p>
               </article>
             ))}
           </div>
@@ -817,10 +817,10 @@ export default function Home() {
           <div className="mx-auto max-w-7xl">
             <div className="grid gap-3 md:grid-cols-4">
               {content.home.process.map((step, index) => (
-                <article key={step.title} className="technical-grid border border-[var(--line)] bg-[var(--paper-soft)] p-5">
-                  <p className="font-mono text-xs font-bold uppercase tracking-[0.22em] text-[var(--pulse)]">0{index + 1}</p>
+                <article key={step.title} className="technical-grid border border-(--line) bg-(--paper-soft) p-5">
+                  <p className="font-mono text-xs font-bold uppercase tracking-[0.22em] text-(--pulse)">0{index + 1}</p>
                   <h2 className="mt-10 text-3xl font-black leading-none">{step.title}</h2>
-                  <p className="mt-4 text-sm font-medium leading-tight text-[var(--muted)]">{step.text}</p>
+                  <p className="mt-4 text-sm font-medium leading-tight text-(--muted)">{step.text}</p>
                 </article>
               ))}
             </div>
@@ -834,14 +834,14 @@ export default function Home() {
             </h2>
             <div className="mt-10 grid gap-5 md:grid-cols-3">
               {content.projects.map((project) => (
-                <Link key={project.title} href={project.href} className="group border border-[var(--line)] bg-[var(--paper-soft)] p-4 transition hover:border-[var(--foreground)]">
+                <Link key={project.title} href={project.href} className="group border border-(--line) bg-(--paper-soft) p-4 transition hover:border-(--foreground)">
                   <Image src={project.image} alt={project.imageAlt} width={500} height={500} className="aspect-[1.15/1] w-full object-cover grayscale transition group-hover:grayscale-0" />
                   <div className="mt-5 flex items-start justify-between gap-4">
                     <div>
                       <h3 className="text-2xl font-black">{project.title}</h3>
-                      <p className="mt-1 font-mono text-xs font-bold uppercase tracking-[0.16em] text-[var(--muted)]">{project.category} / {project.year}</p>
+                      <p className="mt-1 font-mono text-xs font-bold uppercase tracking-[0.16em] text-(--muted)">{project.category} / {project.year}</p>
                     </div>
-                    <span className="text-sm font-black text-[var(--pulse)]">{project.status}</span>
+                    <span className="text-sm font-black text-(--pulse)">{project.status}</span>
                   </div>
                 </Link>
               ))}
@@ -850,11 +850,11 @@ export default function Home() {
         </section>
 
         <section className="px-5 py-16 sm:px-10 lg:px-16">
-          <div className="mx-auto max-w-7xl border-y border-[var(--line)] py-10">
+          <div className="mx-auto max-w-7xl border-y border-(--line) py-10">
             <h2 className="max-w-2xl text-4xl font-black leading-none">{content.home.partnersHeading}</h2>
             <div className="mt-8 flex flex-wrap gap-2">
               {content.partners.map((partner) => (
-                <span key={partner} className="border border-[var(--line)] bg-[var(--paper-soft)] px-3 py-2 font-mono text-xs font-bold uppercase tracking-[0.18em]">
+                <span key={partner} className="border border-(--line) bg-(--paper-soft) px-3 py-2 font-mono text-xs font-bold uppercase tracking-[0.18em]">
                   {partner}
                 </span>
               ))}
@@ -926,7 +926,7 @@ export function TeamStatement({ members, prefix, suffix }: Props) {
           <span key={member.name}>
             <button
               type="button"
-              className="align-baseline underline underline-offset-[0.14em] transition hover:text-[var(--pulse)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--foreground)]"
+              className="align-baseline underline underline-offset-[0.14em] transition hover:text-(--pulse) focus:outline-none focus-visible:ring-2 focus-visible:ring-(--foreground)"
               onMouseEnter={() => setActiveMember(member)}
               onMouseLeave={() => setActiveMember(null)}
               onFocus={() => setActiveMember(member)}
@@ -983,7 +983,7 @@ export const metadata: Metadata = {
 
 export default function Work() {
   return (
-    <div className="min-h-screen bg-[var(--paper)] text-[var(--foreground)]">
+    <div className="min-h-screen bg-(--paper) text-(--foreground)">
       <Header theme="light" active="work" labels={content.nav} />
 
       <main className="overflow-hidden">
@@ -991,36 +991,36 @@ export default function Work() {
 
         <section className="px-5 py-20 sm:px-10 lg:px-16">
           <div className="mx-auto max-w-7xl">
-            <div className="flex items-end justify-between gap-6 border-b border-[var(--line)] pb-6">
+            <div className="flex items-end justify-between gap-6 border-b border-(--line) pb-6">
               <h1 className="text-[clamp(3rem,8vw,8rem)] font-black leading-[0.85]">
                 {content.workPage.projectsHeading}
               </h1>
-              <p className="hidden max-w-xs text-right font-mono text-xs font-bold uppercase tracking-[0.2em] text-[var(--muted)] md:block">
+              <p className="hidden max-w-xs text-right font-mono text-xs font-bold uppercase tracking-[0.2em] text-(--muted) md:block">
                 Systems / products / hardware
               </p>
             </div>
 
             <div className="mt-8 grid gap-5 md:grid-cols-3">
               {content.projects.map((project) => (
-                <article key={project.title} className="group border border-[var(--line)] bg-[var(--paper-soft)] p-4">
+                <article key={project.title} className="group border border-(--line) bg-(--paper-soft) p-4">
                   <Link href={project.href} aria-label={`Open ${project.title}`}>
                     <Image src={project.image} alt={project.imageAlt} width={700} height={520} className="aspect-[1.08/1] w-full object-cover grayscale transition group-hover:grayscale-0" />
                   </Link>
                   <div className="mt-5 flex items-start justify-between gap-4">
                     <div>
                       <h2 className="text-3xl font-black leading-none">{project.title}</h2>
-                      <p className="mt-2 font-mono text-xs font-bold uppercase tracking-[0.16em] text-[var(--muted)]">
+                      <p className="mt-2 font-mono text-xs font-bold uppercase tracking-[0.16em] text-(--muted)">
                         {project.category} / {project.year}
                       </p>
                     </div>
-                    <span className="border border-[var(--line)] px-2 py-1 font-mono text-[10px] font-bold uppercase tracking-[0.12em] text-[var(--pulse)]">
+                    <span className="border border-(--line) px-2 py-1 font-mono text-[10px] font-bold uppercase tracking-[0.12em] text-(--pulse)">
                       {project.status}
                     </span>
                   </div>
-                  <p className="mt-4 text-base font-medium leading-tight text-[var(--muted)]">{project.summary}</p>
+                  <p className="mt-4 text-base font-medium leading-tight text-(--muted)">{project.summary}</p>
                   <div className="mt-5 flex flex-wrap gap-2">
                     {project.tags.map((tag) => (
-                      <span key={tag} className="bg-[var(--paper-muted)] px-2 py-1 font-mono text-[10px] font-bold uppercase tracking-[0.14em]">
+                      <span key={tag} className="bg-(--paper-muted) px-2 py-1 font-mono text-[10px] font-bold uppercase tracking-[0.14em]">
                         {tag}
                       </span>
                     ))}
@@ -1032,11 +1032,11 @@ export default function Work() {
         </section>
 
         <section className="px-5 py-12 sm:px-10 lg:px-16">
-          <div className="mx-auto grid max-w-7xl gap-6 border-y border-[var(--line)] py-10 md:grid-cols-[0.8fr_1.2fr]">
+          <div className="mx-auto grid max-w-7xl gap-6 border-y border-(--line) py-10 md:grid-cols-[0.8fr_1.2fr]">
             <h2 className="text-4xl font-black leading-none">{content.workPage.partnerHeading}</h2>
             <div className="flex flex-wrap gap-2 md:justify-end">
               {content.partners.map((partner) => (
-                <span key={partner} className="border border-[var(--line)] bg-[var(--paper-soft)] px-3 py-2 font-mono text-xs font-bold uppercase tracking-[0.18em]">
+                <span key={partner} className="border border-(--line) bg-(--paper-soft) px-3 py-2 font-mono text-xs font-bold uppercase tracking-[0.18em]">
                   {partner}
                 </span>
               ))}
@@ -1049,10 +1049,10 @@ export default function Work() {
             <h2 className="text-[clamp(2.7rem,6vw,6rem)] font-black leading-[0.9]">{content.workPage.buildLogHeading}</h2>
             <div className="mt-8 grid gap-3 md:grid-cols-3">
               {content.buildLog.map((item, index) => (
-                <article key={item.title} className="signal-scan border border-[var(--line)] bg-[var(--paper-soft)] p-5">
-                  <p className="font-mono text-xs font-bold uppercase tracking-[0.22em] text-[var(--pulse)]">0{index + 1}</p>
+                <article key={item.title} className="signal-scan border border-(--line) bg-(--paper-soft) p-5">
+                  <p className="font-mono text-xs font-bold uppercase tracking-[0.22em] text-(--pulse)">0{index + 1}</p>
                   <h3 className="mt-12 text-3xl font-black leading-none">{item.title}</h3>
-                  <p className="mt-4 text-sm font-medium leading-tight text-[var(--muted)]">{item.text}</p>
+                  <p className="mt-4 text-sm font-medium leading-tight text-(--muted)">{item.text}</p>
                 </article>
               ))}
             </div>
@@ -1130,7 +1130,7 @@ export const metadata: Metadata = {
 
 export default function Services() {
   return (
-    <div className="min-h-screen bg-[var(--paper)] text-[var(--foreground)]">
+    <div className="min-h-screen bg-(--paper) text-(--foreground)">
       <Header theme="light" active="services" labels={content.nav} />
 
       <main id="services" className="overflow-hidden">
@@ -1148,7 +1148,7 @@ export default function Services() {
                 height={474}
                 className="mx-auto block aspect-[0.76/1] w-full max-w-72.5 object-cover grayscale md:max-w-90"
               />
-              <p className="mx-auto mt-6 max-w-xs text-center text-base font-medium leading-tight text-[var(--muted)] md:absolute md:bottom-10 md:right-0 md:mt-0 md:text-left md:text-lg">
+              <p className="mx-auto mt-6 max-w-xs text-center text-base font-medium leading-tight text-(--muted) md:absolute md:bottom-10 md:right-0 md:mt-0 md:text-left md:text-lg">
                 {content.servicesPage.heroBody}
               </p>
             </div>
@@ -1185,7 +1185,7 @@ export default function Services() {
                 />
                 <div className={layout.textClassName}>
                   <h2 className="sr-only">{service.title}</h2>
-                  <p className="text-base font-medium leading-tight text-[var(--muted)] md:text-lg">
+                  <p className="text-base font-medium leading-tight text-(--muted) md:text-lg">
                     {service.text}
                   </p>
                 </div>

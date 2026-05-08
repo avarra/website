@@ -1,36 +1,36 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Avarra Website
 
-## Getting Started
+The marketing website for Avarra, built as a light, technical studio surface with localized content, configurable project data, and a site-wide Three.js particle backdrop.
 
-First, run the development server:
+## Stack
+
+- Next.js 16 App Router
+- React 19
+- Tailwind CSS 4
+- Three.js with React Three Fiber
+- pnpm
+
+## Development
+
+Install dependencies and start the local server:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+pnpm install
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Useful commands:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+pnpm lint
+pnpm build
+pnpm start
+```
 
-## Learn More
+## Project Notes
 
-To learn more about Next.js, take a look at the following resources:
+Most editable site content lives in `src/content/site.ts`, including copy, theme colors, services, projects, partners, team members, and contact details. English is the only active locale for now, with the content structure ready for more locales later.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The global layout in `src/app/layout.tsx` owns the site-wide particle/grid backdrop. Page sections should stay mostly Tailwind-driven, with shared visual primitives in `src/app/globals.css` only where Tailwind would become awkward.

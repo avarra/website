@@ -32,7 +32,7 @@ export const metadata: Metadata = {
 
 export default function Services() {
   return (
-    <div className="min-h-screen bg-transparent text-[var(--foreground)]">
+    <div className="min-h-screen bg-transparent text-foreground">
       <Header theme="light" active="services" labels={content.nav} />
 
       <main id="services" className="overflow-hidden">
@@ -50,7 +50,7 @@ export default function Services() {
                 height={474}
                 className="mx-auto block aspect-[0.76/1] w-full max-w-72.5 object-cover grayscale md:max-w-90"
               />
-              <p className="mx-auto mt-6 max-w-xs text-center text-base font-medium leading-tight text-[var(--muted)] md:absolute md:bottom-10 md:right-0 md:mt-0 md:text-left md:text-lg">
+              <p className="mx-auto mt-6 max-w-xs text-center text-base font-medium leading-tight text-(--muted) md:absolute md:bottom-10 md:right-0 md:mt-0 md:text-left md:text-lg">
                 {content.servicesPage.heroBody}
               </p>
             </div>
@@ -88,7 +88,7 @@ export default function Services() {
                 />
                 <div className={layout.textClassName}>
                   <h2 className="sr-only">{service.title}</h2>
-                  <p className="text-base font-medium leading-tight text-[var(--muted)] md:text-lg">
+                  <p className="text-base font-medium leading-tight text-(--muted) md:text-lg">
                     {service.text}
                   </p>
                 </div>

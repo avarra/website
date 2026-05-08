@@ -25,7 +25,7 @@ export function TeamStatement({ members, prefix, suffix }: Props) {
           <span key={member.name}>
             <button
               type="button"
-              className="align-baseline underline underline-offset-[0.14em] transition hover:text-[var(--pulse)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--foreground)]"
+              className="align-baseline underline underline-offset-[0.14em] transition hover:text-(--pulse) focus:outline-none focus-visible:ring-2 focus-visible:ring-(--foreground)"
               onMouseEnter={() => setActiveMember(member)}
               onMouseLeave={() => setActiveMember(null)}
               onFocus={() => setActiveMember(member)}

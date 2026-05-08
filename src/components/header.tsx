@@ -22,7 +22,7 @@ export default function Header({
   labels,
 }: Props) {
   const isLight = theme === "light";
-  const textClass = isLight ? "text-[var(--foreground)]" : "text-white";
+  const textClass = isLight ? "text-(--foreground)" : "text-white";
   const hoverClass = isLight ? "hover:text-black/60" : "hover:text-white/75";
   const proposalClass = isLight
     ? "border-black/55 hover:border-black hover:bg-black hover:text-white"
