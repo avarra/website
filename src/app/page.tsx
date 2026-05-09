@@ -16,7 +16,7 @@ export default function Home() {
   const tickerItems = Array.from({ length: 10 }, (_, index) => index);
 
   return (
-    <div className="min-h-screen overflow-hidden bg-transparent text-(--foreground)">
+    <div className="min-h-screen overflow-hidden bg-transparent text-foreground">
       <Header theme="light" overlay labels={content.nav} />
 
       <main>
@@ -24,7 +24,7 @@ export default function Home() {
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_58%_44%,rgba(255,253,248,0.01),rgba(247,244,238,0.1)_58%,rgba(247,244,238,0.34)_100%)]" />
           <div className="relative z-10 mx-auto grid min-h-[calc(100vh-9rem)] max-w-7xl items-end gap-6 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12">
             <div className="pb-10 lg:pb-20">
-              <h1 className="mt-5 max-w-4xl text-[clamp(4rem,10vw,10.5rem)] font-black leading-[0.82] tracking-normal">
+              <h1 className="mt-5 max-w-4xl text-[clamp(4rem,10vw,7rem)] font-black leading-[0.82] tracking-normal">
                 {content.home.hero.title}
               </h1>
               <p className="mt-8 max-w-2xl text-lg font-medium leading-tight text-(--muted) sm:text-xl">
@@ -43,13 +43,13 @@ export default function Home() {
               <div className="mt-10 flex flex-wrap gap-3">
                 <a
                   href="#proposal"
-                  className="border border-(--foreground) bg-(--foreground) px-5 py-3 text-sm font-black uppercase text-(--paper) transition hover:bg-transparent hover:text-(--foreground)"
+                  className="border border-foreground bg-foreground px-5 py-3 text-sm font-black uppercase text-(--paper) transition hover:bg-transparent hover:text-foreground"
                 >
                   {content.home.hero.primaryCta}
                 </a>
                 <Link
                   href="/work"
-                  className="border border-(--line) px-5 py-3 text-sm font-black uppercase transition hover:border-(--foreground)"
+                  className="border border-(--line) px-5 py-3 text-sm font-black uppercase transition hover:border-foreground"
                 >
                   {content.home.hero.secondaryCta}
                 </Link>
@@ -67,7 +67,7 @@ export default function Home() {
               />
             </div>
           </div>
-          <div className="absolute bottom-0 left-0 z-20 w-full border-y border-(--foreground) bg-(--foreground) py-4 text-(--paper)">
+          <div className="absolute bottom-0 left-0 z-20 w-full border-y border-foreground bg-foreground py-4 text-(--paper)">
             <div className="ticker-track flex w-max items-center gap-9 whitespace-nowrap text-lg font-extrabold uppercase tracking-normal sm:text-xl">
               {[...tickerItems, ...tickerItems].map((_, index) => (
                 <span key={index}>{content.home.ticker}</span>
@@ -97,7 +97,7 @@ export default function Home() {
             {content.services.map((service, index) => (
               <article
                 key={service.slug}
-                className="group border border-(--line) bg-(--paper-soft) p-5 transition hover:-translate-y-1 hover:border-(--foreground)"
+                className="group border border-(--line) bg-(--paper-soft) p-5 transition hover:-translate-y-1 hover:border-foreground"
               >
                 <div className="flex items-start justify-between gap-4">
                   <h2 className="max-w-xs text-3xl font-black leading-none">
@@ -155,7 +155,7 @@ export default function Home() {
                 <Link
                   key={project.title}
                   href={project.href}
-                  className="group border border-(--line) bg-(--paper-soft) p-4 transition hover:border-(--foreground)"
+                  className="group border border-(--line) bg-(--paper-soft) p-4 transition hover:border-foreground"
                 >
                   <Image
                     src={project.image}

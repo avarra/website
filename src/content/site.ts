@@ -43,10 +43,10 @@ export const siteContent = {
     home: {
       hero: {
         title: "Interfaces for ambitious operators.",
-        body: "Avarra designs and builds internal systems, web and mobile products, and connected hardware workflows for teams that need momentum without mess.",
+        body: "Avarra designs and builds internal systems, web & mobile products, and connected hardware workflows for teams that need momentum without mess.",
         primaryCta: "Request proposal",
         secondaryCta: "See work",
-        pills: ["Internal systems", "Web and mobile", "Hardware"],
+        pills: ["Internal systems", "Web & mobile", "Hardware"],
       },
       ticker: "Only 2 spots left",
       metrics: [
@@ -85,7 +85,7 @@ export const siteContent = {
       testimonial:
         "Avarra is the best agency I have worked with for software and hardware development. They took my idea and turned it into a clean, high-performing product that exceeded expectations.",
       diagramAlt:
-        "Avarra service diagram covering hardware solutions, internal systems, and web and mobile products",
+        "Avarra service diagram covering hardware solutions, internal systems, and web & mobile products",
     },
     workPage: {
       metadataTitle: "Work | Avarra",
