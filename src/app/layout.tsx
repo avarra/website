@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { ParticleField } from "@/components/visuals/particle-field-loader";
 import { defaultLocale, getSiteContent, theme } from "@/content/site";
+import { createSiteMetadata } from "@/lib/metadata";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -16,10 +17,10 @@ const geistMono = Geist_Mono({
 
 const content = getSiteContent(defaultLocale);
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createSiteMetadata({
   title: content.metadata.title,
   description: content.metadata.description,
-};
+});
 
 export default function RootLayout({
   children,

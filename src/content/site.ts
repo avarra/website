@@ -24,9 +24,9 @@ export const theme = {
 export const siteContent = {
   en: {
     metadata: {
-      title: "Avarra",
+      title: "Avarra | Software and Hardware Agency",
       description:
-        "Avarra builds technical systems, products, and hardware for ambitious operators.",
+        "Avarra designs and builds software, web and mobile products, internal systems, and hardware solutions for teams that need reliable products shipped well.",
     },
     nav: {
       home: "Avarra home",
@@ -37,13 +37,13 @@ export const siteContent = {
     contact: {
       label: "Start a build",
       heading: "Bring us the messy system.",
-      body: "We turn rough operations, product ideas, and hardware concepts into products that holds together under real use.",
+      body: "We turn rough workflows, product ideas, and hardware concepts into products that hold together under real use.",
       email: "hello@avarra.dev",
     },
     home: {
       hero: {
-        title: "Interfaces for ambitious operators.",
-        body: "Avarra designs and builds internal systems, web & mobile products, and connected hardware workflows for teams that need momentum without mess.",
+        title: "Products built properly.",
+        body: "Avarra designs and builds internal systems, web and mobile products, and connected hardware workflows for teams that need reliable products shipped well.",
         primaryCta: "Request proposal",
         secondaryCta: "See work",
         pills: ["Internal systems", "Web & mobile", "Hardware"],
@@ -73,12 +73,12 @@ export const siteContent = {
         },
       ],
       featuredWorkHeading: "Selected systems in motion",
-      partnersHeading: "Built with operators, founders, and product teams",
+      partnersHeading: "Built with founders, product teams, and hardware labs",
     },
     servicesPage: {
       metadataTitle: "Services | Avarra",
       metadataDescription:
-        "Avarra builds product-led systems, web platforms, apps, and hardware solutions that scale.",
+        "Avarra is a software and hardware agency building web platforms, mobile apps, internal systems, and hardware solutions that scale.",
       heroTitle: "We build tools and apps people actually use and love.",
       heroBody:
         "Product-led systems, elegant mobile apps, and web platforms that scale. We help teams ship faster, reduce operational cost, and turn work into outcomes.",
@@ -90,7 +90,7 @@ export const siteContent = {
     workPage: {
       metadataTitle: "Work | Avarra",
       metadataDescription:
-        "Selected work, collaborations, and build logs from the Avarra team.",
+        "Selected software, hardware, web, mobile, and internal systems work from the Avarra team.",
       introPrefix: "Our team members",
       introSuffix:
         "have collectively and individually collaborated with a wide range of clients and partners.",
@@ -135,7 +135,7 @@ export const siteContent = {
           "A launch-ready product surface and growth workflow for a focused fintech offer.",
       },
       {
-        title: "Operator Console",
+        title: "Operations Console",
         category: "Internal system",
         year: "2026",
         status: "Draft case study",

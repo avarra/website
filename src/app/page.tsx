@@ -4,13 +4,14 @@ import Link from "next/link";
 import Header from "@/components/header";
 import { ContactCta } from "@/components/sections/contact-cta";
 import { defaultLocale, getSiteContent } from "@/content/site";
+import { createSiteMetadata } from "@/lib/metadata";
 
 const content = getSiteContent(defaultLocale);
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createSiteMetadata({
   title: content.metadata.title,
   description: content.metadata.description,
-};
+});
 
 export default function Home() {
   const tickerItems = Array.from({ length: 10 }, (_, index) => index);

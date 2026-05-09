@@ -3,6 +3,7 @@ import Header from "@/components/header";
 import { ContactCta } from "@/components/sections/contact-cta";
 import Image from "next/image";
 import { defaultLocale, getSiteContent } from "@/content/site";
+import { createSiteMetadata } from "@/lib/metadata";
 
 const content = getSiteContent(defaultLocale);
 
@@ -25,10 +26,11 @@ const serviceLayouts = [
   },
 ];
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createSiteMetadata({
   title: content.servicesPage.metadataTitle,
   description: content.servicesPage.metadataDescription,
-};
+  path: "/services",
+});
 
 export default function Services() {
   return (
