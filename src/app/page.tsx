@@ -22,8 +22,8 @@ export default function Home() {
       <main>
         <section className="relative min-h-screen overflow-hidden px-5 pb-12 pt-28 sm:px-10 lg:px-16">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_58%_44%,rgba(255,253,248,0.01),rgba(247,244,238,0.1)_58%,rgba(247,244,238,0.34)_100%)]" />
-          <div className="relative z-10 mx-auto flex min-h-[calc(100vh-9rem)] max-w-7xl items-end">
-            <div className="max-w-5xl pb-20">
+          <div className="relative z-10 mx-auto grid min-h-[calc(100vh-9rem)] max-w-7xl items-end gap-12 lg:grid-cols-[1.05fr_0.95fr]">
+            <div className="pb-20">
               <h1 className="mt-5 max-w-4xl text-[clamp(4rem,10vw,10.5rem)] font-black leading-[0.82] tracking-normal">
                 {content.home.hero.title}
               </h1>
@@ -54,6 +54,17 @@ export default function Home() {
                   {content.home.hero.secondaryCta}
                 </Link>
               </div>
+            </div>
+
+            <div className="mb-20 hidden border border-(--line) bg-(--paper-soft)/80 p-4 shadow-[0_30px_90px_rgba(23,21,20,0.12)] lg:block">
+              <Image
+                src="/hero.png"
+                alt=""
+                width={823}
+                height={649}
+                className="aspect-[1.2/1] w-full object-cover object-[33%_28%] grayscale"
+                priority
+              />
             </div>
           </div>
           <div className="absolute bottom-0 left-0 z-20 w-full border-y border-(--foreground) bg-(--foreground) py-4 text-(--paper)">
