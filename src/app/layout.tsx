@@ -50,7 +50,9 @@ export default function RootLayout({
       >
         <div className="fixed inset-0 z-0 overflow-hidden" aria-hidden="true">
           <ParticleField />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_20%,rgba(255,253,248,0.34),rgba(247,244,238,0.78)_58%,rgba(247,244,238,0.92)_100%)]" />
+          <div className="site-signal-grid absolute inset-0 opacity-80" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_18%,rgba(255,253,248,0.14),rgba(247,244,238,0.34)_54%,rgba(247,244,238,0.64)_100%)]" />
+          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(247,244,238,0.08),rgba(247,244,238,0.36)_48%,rgba(247,244,238,0.68)_100%)]" />
         </div>
         <div className="relative z-10 flex min-h-screen flex-col">
           {children}
