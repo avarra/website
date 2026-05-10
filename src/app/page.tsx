@@ -56,17 +56,6 @@ export default function Home() {
                 </Link>
               </div>
             </div>
-
-            <div className="mb-24 border border-(--line) bg-(--paper-soft)/80 p-3 shadow-[0_30px_90px_rgba(23,21,20,0.12)] sm:p-4 lg:mb-20">
-              <Image
-                src="/hero.png"
-                alt=""
-                width={823}
-                height={649}
-                className="aspect-[1.2/1] w-full object-cover object-[33%_28%] grayscale"
-                priority
-              />
-            </div>
           </div>
           <div className="absolute bottom-0 left-0 z-20 w-full border-y border-foreground bg-foreground py-4 text-(--paper)">
             <div className="ticker-track flex w-max items-center gap-9 whitespace-nowrap text-lg font-extrabold uppercase tracking-normal sm:text-xl">
