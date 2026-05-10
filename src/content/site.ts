@@ -72,7 +72,6 @@ export const siteContent = {
           text: "Harden the system, refine the operating loops, and leave room for the next release.",
         },
       ],
-      featuredWorkHeading: "Selected systems in motion",
       partnersHeading: "Built with founders, product teams, and hardware labs",
     },
     servicesPage: {

@@ -136,42 +136,6 @@ export default function Home() {
         </section>
 
         <section className="px-5 py-16 sm:px-10 lg:px-16">
-          <div className="mx-auto max-w-7xl">
-            <h2 className="max-w-3xl text-[clamp(2.3rem,5vw,5.5rem)] font-black leading-[0.9]">
-              {content.home.featuredWorkHeading}
-            </h2>
-            <div className="mt-10 grid gap-5 md:grid-cols-3">
-              {content.projects.map((project) => (
-                <Link
-                  key={project.title}
-                  href={project.href}
-                  className="group border border-(--line) bg-(--paper-soft) p-4 transition hover:border-foreground"
-                >
-                  <Image
-                    src={project.image}
-                    alt={project.imageAlt}
-                    width={500}
-                    height={500}
-                    className="aspect-[1.15/1] w-full object-cover grayscale transition group-hover:grayscale-0"
-                  />
-                  <div className="mt-5 flex items-start justify-between gap-4">
-                    <div>
-                      <h3 className="text-2xl font-black">{project.title}</h3>
-                      <p className="mt-1 font-mono text-xs font-bold uppercase tracking-[0.16em] text-(--muted)">
-                        {project.category} / {project.year}
-                      </p>
-                    </div>
-                    <span className="text-sm font-black text-(--pulse)">
-                      {project.status}
-                    </span>
-                  </div>
-                </Link>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="px-5 py-16 sm:px-10 lg:px-16">
           <div className="mx-auto max-w-7xl border-y border-(--line) py-10">
             <h2 className="max-w-2xl text-4xl font-black leading-none">
               {content.home.partnersHeading}
