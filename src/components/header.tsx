@@ -22,7 +22,7 @@ export default function Header({
   labels,
 }: Props) {
   const isLight = theme === "light";
-  const textClass = isLight ? "text-(--foreground)" : "text-white";
+  const textClass = isLight ? "text-ink" : "text-white";
   const hoverClass = isLight ? "hover:text-black/60" : "hover:text-white/75";
   const proposalClass = isLight
     ? "border-black/55 hover:border-black hover:bg-black hover:text-white"
@@ -64,7 +64,7 @@ export default function Header({
         </nav>
 
         <a
-          className={`border border-dashed px-3 py-2 text-[14px] font-extrabold transition sm:px-4 sm:text-[15px] ${proposalClass}`}
+          className={`border border-dashed px-3 py-2 text-[14px] font-bold transition sm:px-4 sm:text-[15px] ${proposalClass}`}
           href="#proposal"
         >
           {labels.proposal}

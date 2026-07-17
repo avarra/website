@@ -34,13 +34,13 @@ export const metadata: Metadata = createSiteMetadata({
 
 export default function Services() {
   return (
-    <div className="min-h-screen bg-transparent text-foreground">
+    <div className="min-h-screen bg-transparent text-ink">
       <Header theme="light" active="services" labels={content.nav} />
 
       <main id="services" className="overflow-hidden">
         <section className="mx-auto max-w-6xl px-5 pt-8 sm:px-10 lg:px-16">
           <div className="relative min-h-130 md:min-h-152.5">
-            <h1 className="sticky top-24 z-20 mx-auto max-w-5xl text-center text-[clamp(2.15rem,5vw,4.75rem)] font-black leading-[1.08] tracking-normal md:top-28">
+            <h1 className="sticky top-24 z-20 mx-auto max-w-5xl text-center text-[clamp(2.15rem,5vw,4.75rem)] font-extrabold leading-[1.08] tracking-normal md:top-28">
               {content.servicesPage.heroTitle}
             </h1>
 
@@ -52,7 +52,7 @@ export default function Services() {
                 height={474}
                 className="mx-auto block aspect-[0.76/1] w-full max-w-72.5 object-cover grayscale md:max-w-90"
               />
-              <p className="mx-auto mt-6 max-w-xs text-center text-base font-medium leading-tight text-(--muted) md:absolute md:bottom-10 md:right-0 md:mt-0 md:text-left md:text-lg">
+              <p className="mx-auto mt-6 max-w-xs text-center text-base font-normal leading-tight text-muted md:absolute md:bottom-10 md:right-0 md:mt-0 md:text-left md:text-lg">
                 {content.servicesPage.heroBody}
               </p>
             </div>
@@ -60,7 +60,7 @@ export default function Services() {
         </section>
 
         <section className="mx-auto max-w-6xl px-5 py-14 text-center sm:px-10 md:py-20 lg:px-16">
-          <p className="mx-auto max-w-5xl text-[clamp(1.85rem,4vw,3.25rem)] font-black leading-[1.12] tracking-normal">
+          <p className="mx-auto max-w-5xl text-[clamp(1.85rem,4vw,3.25rem)] font-extrabold leading-[1.12] tracking-normal">
             {content.servicesPage.testimonial}
           </p>
         </section>
@@ -90,7 +90,7 @@ export default function Services() {
                 />
                 <div className={layout.textClassName}>
                   <h2 className="sr-only">{service.title}</h2>
-                  <p className="text-base font-medium leading-tight text-(--muted) md:text-lg">
+                  <p className="text-base font-normal leading-tight text-muted md:text-lg">
                     {service.text}
                   </p>
                 </div>

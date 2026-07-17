@@ -19,13 +19,13 @@ export function TeamStatement({ members, prefix, suffix }: Props) {
 
   return (
     <section className="relative mx-auto max-w-6xl px-5 pt-28 text-center sm:px-10 md:pt-36 lg:px-16">
-      <p className="mx-auto max-w-5xl text-[clamp(2.1rem,5.2vw,4.4rem)] font-black leading-[1.05] tracking-normal">
+      <p className="mx-auto max-w-5xl text-[clamp(2.1rem,5.2vw,4.4rem)] font-extrabold leading-[1.05] tracking-normal">
         {prefix} (
         {members.map((member, index) => (
           <span key={member.name}>
             <button
               type="button"
-              className="align-baseline underline underline-offset-[0.14em] transition hover:text-(--pulse) focus:outline-none focus-visible:ring-2 focus-visible:ring-(--foreground)"
+              className="align-baseline underline underline-offset-[0.14em] transition hover:text-brand focus:outline-none focus-visible:ring-2 focus-visible:ring-ink"
               onMouseEnter={() => setActiveMember(member)}
               onMouseLeave={() => setActiveMember(null)}
               onFocus={() => setActiveMember(member)}
