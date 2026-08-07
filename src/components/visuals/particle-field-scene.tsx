@@ -291,10 +291,10 @@ function createParticleData(): ParticleData {
     { length: SCENE_COUNT },
     () => new Float32Array(PARTICLE_COUNT * 3),
   );
-  const ink = new THREE.Color("#171514");
-  const signal = new THREE.Color("#6f8d78");
-  const pulse = new THREE.Color("#b96a53");
-  const steel = new THREE.Color("#65737e");
+  const ink = new THREE.Color("#15100e");
+  const signal = new THREE.Color("#ffaf91");
+  const pulse = new THREE.Color("#f96c39");
+  const steel = new THREE.Color("#8d7770");
 
   for (let index = 0; index < PARTICLE_COUNT; index += 1) {
     const i = index * 3;
@@ -438,10 +438,10 @@ function createSignalData(): SignalData {
   const positions = new Float32Array(segmentCount * 2 * 3);
   const basePositions = new Float32Array(segmentCount * 2 * 3);
   const colors = new Float32Array(segmentCount * 2 * 3);
-  const bright = new THREE.Color("#fffdf8");
-  const pulse = new THREE.Color("#b96a53");
-  const signal = new THREE.Color("#6f8d78");
-  const ink = new THREE.Color("#171514");
+  const bright = new THREE.Color("#fffaf7");
+  const pulse = new THREE.Color("#f96c39");
+  const signal = new THREE.Color("#ffaf91");
+  const ink = new THREE.Color("#15100e");
   let cursor = 0;
 
   for (let signalIndex = 0; signalIndex < SIGNAL_COUNT; signalIndex += 1) {

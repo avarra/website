@@ -32,7 +32,7 @@ export const siteContent = {
       home: "Avarra home",
       services: "Services",
       work: "Work",
-      proposal: "Request proposal",
+      booking: "Book a meeting",
     },
     contact: {
       label: "Start a build",

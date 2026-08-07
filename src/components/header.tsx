@@ -1,11 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
+import { CalBookingLink } from "@/components/cal-booking-link";
 
 type HeaderLabels = {
   home: string;
   services: string;
   work: string;
-  proposal: string;
+  booking: string;
 };
 
 type Props = {
@@ -23,52 +24,60 @@ export default function Header({
 }: Props) {
   const isLight = theme === "light";
   const textClass = isLight ? "text-ink" : "text-white";
-  const hoverClass = isLight ? "hover:text-black/60" : "hover:text-white/75";
-  const proposalClass = isLight
-    ? "border-black/55 hover:border-black hover:bg-black hover:text-white"
-    : "border-white/75 hover:border-white hover:bg-white hover:text-black";
   const logoSrc = isLight ? "/logo_black.svg" : "/logo.svg";
   const positionClass = overlay ? "absolute left-0 top-0" : "relative";
 
   return (
-    <header className={`${positionClass} z-30 w-full px-5 py-7 ${textClass} sm:px-10 lg:px-16`}>
-      <div className="mx-auto flex max-w-7xl items-center justify-between">
+    <header
+      className={`${positionClass} z-30 w-full ${textClass}`}
+      data-cursor-tone={isLight ? undefined : "light"}
+    >
+      <div className="mx-auto flex min-h-40 w-full max-w-[1408px] items-center justify-between px-5 sm:px-8 lg:px-16 max-[900px]:min-h-28 max-[680px]:min-h-24">
         <Link
           href="/"
-          className="block transition-opacity hover:opacity-75"
+          className="inline-flex transition-opacity duration-200 hover:opacity-60 motion-reduce:transition-none"
           aria-label={labels.home}
+          data-cursor-label="Home"
         >
           <Image
             src={logoSrc}
             alt="Avarra"
-            width={78}
-            height={20}
-            className="h-5 w-auto sm:h-6"
-            priority
+            width={118}
+            height={30}
+            className="h-auto w-36 max-[680px]:w-24"
+            loading="eager"
           />
         </Link>
 
-        <nav className="hidden items-center gap-7 text-[15px] font-extrabold md:flex lg:gap-8">
+        <nav className="ml-auto mr-8 hidden items-center gap-7 text-xs font-semibold uppercase tracking-tight md:flex lg:gap-10">
           <Link
-            className={`transition ${hoverClass} ${active === 'services' ? 'underline underline-offset-4' : ''}`}
+            className={`relative py-2 transition-colors duration-200 after:absolute after:inset-x-0 after:bottom-0 after:h-px after:origin-left after:bg-brand after:transition-transform hover:text-brand ${
+              active === "services"
+                ? "text-brand after:scale-x-100"
+                : "after:scale-x-0 hover:after:scale-x-100"
+            }`}
             href="/services"
           >
             {labels.services}
           </Link>
           <Link
-            className={`transition ${hoverClass} ${active === 'work' ? 'underline underline-offset-4' : ''}`}
+            className={`relative py-2 transition-colors duration-200 after:absolute after:inset-x-0 after:bottom-0 after:h-px after:origin-left after:bg-brand after:transition-transform hover:text-brand ${
+              active === "work"
+                ? "text-brand after:scale-x-100"
+                : "after:scale-x-0 hover:after:scale-x-100"
+            }`}
             href="/work"
           >
             {labels.work}
           </Link>
         </nav>
 
-        <a
-          className={`border border-dashed px-3 py-2 text-[14px] font-bold transition sm:px-4 sm:text-[15px] ${proposalClass}`}
-          href="#proposal"
+        <CalBookingLink
+          className="orange-button"
+          cursorLabel="Book"
         >
-          {labels.proposal}
-        </a>
+          {labels.booking}
+        </CalBookingLink>
       </div>
     </header>
   );

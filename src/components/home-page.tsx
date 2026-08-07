@@ -3,12 +3,14 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useSyncExternalStore } from "react";
+import { CalBookingLink } from "@/components/cal-booking-link";
 
 type Locale = "en" | "sl";
 
 const translations = {
   en: {
     homeLabel: "Avarra home",
+    booking: "Book a meeting",
     contact: "Contact us",
     hero: {
       prefix: "We shape",
@@ -110,6 +112,7 @@ const translations = {
   },
   sl: {
     homeLabel: "Domača stran Avarra",
+    booking: "Rezerviraj sestanek",
     contact: "Kontaktiraj nas",
     hero: {
       prefix: "Oblikujemo",
@@ -237,7 +240,7 @@ const pageShell =
   "mx-auto w-full max-w-[1408px] px-16 max-[900px]:px-8 max-[680px]:px-5";
 
 const orangeButton =
-  "inline-flex min-h-10 items-center justify-center bg-brand px-5 text-xs font-semibold uppercase tracking-tight text-white transition-transform duration-200 hover:-translate-y-0.5 max-[680px]:min-h-9 max-[680px]:px-4 max-[680px]:text-[10px] motion-reduce:transition-none";
+  "orange-button max-[680px]:min-h-9 max-[680px]:px-4 max-[680px]:text-[10px]";
 
 const sectionHeading =
   "m-0 text-[clamp(18px,1.35vw,23px)] leading-none font-bold tracking-tighter uppercase";
@@ -273,7 +276,7 @@ export function HomePage() {
   };
 
   return (
-    <div className="editorial-grid overflow-hidden bg-white font-extralight text-ink">
+    <div className="editorial-grid overflow-hidden font-extralight text-ink">
       <header
         className={`${pageShell} flex min-h-40 items-center justify-between max-[900px]:min-h-28 max-[680px]:min-h-24`}
       >
@@ -281,19 +284,20 @@ export function HomePage() {
           href="/"
           aria-label={copy.homeLabel}
           className="inline-flex transition-opacity duration-200 hover:opacity-60 motion-reduce:transition-none"
+          data-cursor-label="Home"
         >
           <Image
             src="/logo_black.svg"
             alt="Avarra"
             width={118}
             height={30}
-            priority
+            loading="eager"
             className="h-auto w-36 max-[680px]:w-24"
           />
         </Link>
-        <a className={orangeButton} href="#contact">
-          {copy.contact}
-        </a>
+        <CalBookingLink className={orangeButton} cursorLabel="Book">
+          {copy.booking}
+        </CalBookingLink>
       </header>
 
       <main>
@@ -315,18 +319,18 @@ export function HomePage() {
             {copy.hero.suffix}
           </h1>
 
-          <div className="group relative mt-8 aspect-[2.66/1] overflow-hidden bg-placeholder-strong max-[900px]:aspect-[1.8/1] max-[680px]:mt-6 max-[680px]:aspect-[1.18/1]">
+          <div className="image-frame group relative mt-8 aspect-[2.66/1] shadow-[0_28px_80px_rgba(97,38,18,0.12)] max-[900px]:aspect-[1.8/1] max-[680px]:mt-6 max-[680px]:aspect-[1.18/1]">
             <Image
               src="/aiken_matej.png"
               alt={copy.hero.imageAlt}
               fill
-              priority
+              loading="eager"
               sizes="(max-width: 760px) 100vw, 92vw"
-              className="object-cover [object-position:center_43%]"
+              className="object-cover [object-position:center_43%] transition-transform duration-700 group-hover:scale-[1.015] motion-reduce:transition-none"
             />
           </div>
 
-          <p className="mt-9 max-w-2xl text-[clamp(18px,1.55vw,25px)] leading-[1.12] font-light tracking-tight max-[680px]:mt-6 max-[680px]:max-w-[92%] max-[680px]:text-lg">
+          <p className="glass-panel mt-9 max-w-2xl border-l border-brand px-5 py-4 text-[clamp(18px,1.55vw,25px)] leading-[1.12] font-light tracking-tight max-[680px]:mt-6 max-[680px]:max-w-[92%] max-[680px]:text-lg">
             {copy.hero.intro}
           </p>
         </section>
@@ -344,7 +348,7 @@ export function HomePage() {
               {copy.services.intro}
             </p>
             <div className="mt-auto max-w-sm max-[680px]:mt-11">
-              <a className={orangeButton} href="#contact">
+              <a className={orangeButton} href="#contact" data-cursor-label="Contact">
                 {copy.contact}
               </a>
               <p className="mt-4 text-sm leading-tight text-subtle">
@@ -356,7 +360,7 @@ export function HomePage() {
           <div className="grid gap-6 max-[680px]:mt-14 max-[680px]:gap-3.5">
             {copy.services.items.map((service) => (
               <article
-                className="flex flex-col justify-center border border-brand bg-white/85 p-6 max-[680px]:p-5"
+                className="glass-panel flex flex-col justify-center border border-brand p-6 shadow-[0_18px_50px_rgba(97,38,18,0.05)] transition-transform duration-300 hover:-translate-y-1 max-[680px]:p-5 motion-reduce:transition-none"
                 key={service.title}
               >
                 <h3
@@ -384,13 +388,13 @@ export function HomePage() {
           <div className="mt-18 grid grid-cols-2 gap-x-7 gap-y-18 max-[680px]:mt-12 max-[680px]:grid-cols-1 max-[680px]:gap-14">
             {copy.work.projects.map((project) => (
               <article className="group" key={project.image}>
-                <div className="relative aspect-[1.72/1] overflow-hidden border border-brand bg-placeholder">
+                <div className="image-frame relative aspect-[1.72/1]">
                   <Image
                     src={project.image}
                     alt={project.alt}
                     fill
                     sizes="(max-width: 760px) 100vw, 46vw"
-                    className="object-cover transition-[filter] duration-500 group-hover:saturate-[1.08] motion-reduce:transition-none"
+                    className="object-cover transition-transform duration-700 group-hover:scale-[1.025] motion-reduce:transition-none"
                   />
                   <span className="absolute top-5 left-6 z-2 text-xs font-semibold tracking-tight text-white uppercase [text-shadow:0_1px_16px_rgba(0,0,0,0.4)] max-[680px]:top-3.5 max-[680px]:left-3.5 max-[680px]:text-[10px]">
                     {project.year}
@@ -425,10 +429,10 @@ export function HomePage() {
           <div className="grid grid-cols-[minmax(0,1fr)_minmax(0,1.3fr)_minmax(0,1fr)] items-stretch gap-8 max-[900px]:gap-6 max-[680px]:grid-cols-1">
               {copy.testimonials.items.map((testimonial, index) => (
                 <blockquote
-                  className={`m-0 min-h-72 border-0 px-8 py-7 text-white max-[680px]:min-h-64 max-[680px]:p-6 ${
+                  className={`m-0 min-h-72 border px-8 py-7 text-white shadow-[0_22px_60px_rgba(97,38,18,0.1)] max-[680px]:min-h-64 max-[680px]:p-6 ${
                   index === 1
-                    ? "-translate-y-6 bg-brand max-[680px]:translate-y-0"
-                      : "bg-brand-soft opacity-75 max-[680px]:hidden"
+                    ? "-translate-y-6 border-brand bg-brand max-[680px]:translate-y-0"
+                      : "border-brand/35 bg-brand-soft/75 backdrop-blur-md max-[680px]:hidden"
                   }`}
                   key={index}
                 >
@@ -451,6 +455,7 @@ export function HomePage() {
       <footer
         id="contact"
         className="bg-brand py-16 text-white max-[680px]:py-10"
+        data-cursor-tone="light"
       >
         <div
           className={`${pageShell} grid grid-cols-2 items-start gap-10 max-[680px]:grid-cols-1 max-[680px]:gap-8`}
@@ -458,6 +463,7 @@ export function HomePage() {
           <Link
             href="#testimonials-title"
             className="group relative block max-w-xl overflow-hidden max-[680px]:max-w-none"
+            data-cursor-label="Stories"
           >
             <div className="relative aspect-[2.02/1] overflow-hidden bg-brand-deep">
               <Image
@@ -465,6 +471,7 @@ export function HomePage() {
                 alt={copy.footer.teamAlt}
                 fill
                 sizes="(max-width: 760px) 100vw, 42vw"
+                loading="eager"
                 className="object-cover [object-position:center_43%]"
               />
             </div>
@@ -475,16 +482,16 @@ export function HomePage() {
               className="flex flex-col items-end max-[680px]:items-start"
               aria-label={copy.footer.navLabel}
             >
-              <Link href="/" className={footerNavLink}>
+              <Link href="/" className={footerNavLink} data-cursor-label="Home">
                 {copy.footer.home}
               </Link>
-              <Link href="/services" className={footerNavLink}>
+              <Link href="/services" className={footerNavLink} data-cursor-label="View">
                 {copy.footer.services}
               </Link>
-              <Link href="#testimonials-title" className={footerNavLink}>
+              <Link href="#testimonials-title" className={footerNavLink} data-cursor-label="Read">
                 {copy.footer.work}
               </Link>
-              <a href="mailto:hello@avarra.dev" className={footerNavLink}>
+              <a href="mailto:hello@avarra.dev" className={footerNavLink} data-cursor-label="Email">
                 {copy.footer.contact}
               </a>
             </nav>
@@ -499,6 +506,7 @@ export function HomePage() {
                   aria-pressed={locale === "sl"}
                   className={localeButtonClass(locale === "sl")}
                   onClick={() => changeLocale("sl")}
+                  data-cursor-label="SL"
                 >
                   SL
                 </button>
@@ -508,6 +516,7 @@ export function HomePage() {
                   aria-pressed={locale === "en"}
                   className={localeButtonClass(locale === "en")}
                   onClick={() => changeLocale("en")}
+                  data-cursor-label="EN"
                 >
                   EN
                 </button>
