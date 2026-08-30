@@ -4,6 +4,17 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useSyncExternalStore } from "react";
 import { CalBookingLink } from "@/components/cal-booking-link";
+import { defaultLocale, getSiteContent } from "@/content/site";
+
+const featuredProjectSlugs = [
+  "fundl",
+  "go-to-market-toolkit",
+  "glcharge",
+  "yourflare",
+] as const;
+const featuredProjects = getSiteContent(defaultLocale).projects.filter(
+  (project) => (featuredProjectSlugs as readonly string[]).includes(project.slug),
+);
 
 type Locale = "en" | "sl";
 
@@ -47,38 +58,6 @@ const translations = {
     },
     work: {
       heading: "Selected projects",
-      summary:
-        "A focused build that turns a complex challenge into a clear, useful product people can rely on.",
-      projects: [
-        {
-          title: "Fundl launch campaign",
-          category: "Digital product",
-          year: "2024",
-          image: "/work1.png",
-          alt: "Fundl campaign creative with McDonald’s products",
-        },
-        {
-          title: "Go-to-market toolkit",
-          category: "Web platform",
-          year: "2024",
-          image: "/work2.png",
-          alt: "Go-to-market toolkit displayed across digital devices",
-        },
-        {
-          title: "Connected workflows",
-          category: "Internal system",
-          year: "2025",
-          image: "/services2.png",
-          alt: "A connected mobile product in use",
-        },
-        {
-          title: "Embedded product loop",
-          category: "Hardware",
-          year: "2026",
-          image: "/services3.png",
-          alt: "An engineer working with an embedded hardware board",
-        },
-      ],
     },
     openSource: {
       heading: "Open source",
@@ -154,38 +133,6 @@ const translations = {
     },
     work: {
       heading: "Izbrani projekti",
-      summary:
-        "Izboljšamo vidnost vaše spletne strani v iskalnikih, povečamo organski obisk in vas povežemo s pravimi strankami.",
-      projects: [
-        {
-          title: "Lorem ipsum",
-          category: "Spletna stran",
-          year: "2024",
-          image: "/work1.png",
-          alt: "Kreativa kampanje Fundl z izdelki McDonald’s",
-        },
-        {
-          title: "Lorem ipsum",
-          category: "Spletna stran",
-          year: "2024",
-          image: "/work2.png",
-          alt: "Orodje za vstop na trg, prikazano na digitalnih napravah",
-        },
-        {
-          title: "Lorem ipsum",
-          category: "Spletna stran",
-          year: "2024",
-          image: "/services2.png",
-          alt: "Povezan mobilni produkt v uporabi",
-        },
-        {
-          title: "Lorem ipsum",
-          category: "Spletna stran",
-          year: "2024",
-          image: "/services3.png",
-          alt: "Inženir pri delu z vgrajeno strojno opremo",
-        },
-      ],
     },
     openSource: {
       heading: "Odprta koda",
@@ -396,29 +343,38 @@ export function HomePage() {
           </h2>
 
           <div className="mt-18 grid grid-cols-2 gap-x-7 gap-y-18 max-[680px]:mt-12 max-[680px]:grid-cols-1 max-[680px]:gap-14">
-            {copy.work.projects.map((project) => (
-              <article className="group" key={project.image}>
-                <div className="image-frame relative aspect-[1.72/1]">
-                  <Image
-                    src={project.image}
-                    alt={project.alt}
-                    fill
-                    sizes="(max-width: 760px) 100vw, 46vw"
-                    className="object-cover transition-transform duration-700 group-hover:scale-[1.025] motion-reduce:transition-none"
-                  />
-                  <span className="absolute top-5 left-6 z-2 text-xs font-semibold tracking-tight text-white uppercase [text-shadow:0_1px_16px_rgba(0,0,0,0.4)] max-[680px]:top-3.5 max-[680px]:left-3.5 max-[680px]:text-[10px]">
-                    {project.year}
-                  </span>
-                  <span className="absolute top-5 right-5 z-2 bg-white px-3 py-2 text-xs font-semibold tracking-tight text-brand uppercase max-[680px]:top-3.5 max-[680px]:right-3.5 max-[680px]:text-[10px]">
-                    {project.category}
-                  </span>
-                </div>
-                <h3 className="mt-7 text-[clamp(20px,1.7vw,28px)] leading-none font-bold tracking-tighter uppercase max-[680px]:mt-5">
-                  {project.title}
-                </h3>
-                <p className="mt-4 max-w-xl text-sm leading-tight tracking-tight">
-                  {copy.work.summary}
-                </p>
+            {featuredProjects.map((project) => (
+              <article className="group" key={project.slug}>
+                <Link
+                  href={project.href}
+                  aria-label={`Open ${project.title}`}
+                  className="block"
+                  data-cursor-label="View"
+                >
+                  <div className="image-frame relative aspect-[1.72/1]">
+                    <Image
+                      src={project.image}
+                      alt={project.imageAlt}
+                      fill
+                      sizes="(max-width: 760px) 100vw, 46vw"
+                      className="object-cover transition-transform duration-700 group-hover:scale-[1.025] motion-reduce:transition-none"
+                    />
+                    {"year" in project && project.year ? (
+                      <span className="absolute top-5 left-6 z-2 text-xs font-semibold tracking-tight text-white uppercase [text-shadow:0_1px_16px_rgba(0,0,0,0.4)] max-[680px]:top-3.5 max-[680px]:left-3.5 max-[680px]:text-[10px]">
+                        {project.year}
+                      </span>
+                    ) : null}
+                    <span className="absolute top-5 right-5 z-2 bg-white px-3 py-2 text-xs font-semibold tracking-tight text-brand uppercase max-[680px]:top-3.5 max-[680px]:right-3.5 max-[680px]:text-[10px]">
+                      {project.category}
+                    </span>
+                  </div>
+                  <h3 className="mt-7 text-[clamp(20px,1.7vw,28px)] leading-none font-bold tracking-tighter uppercase max-[680px]:mt-5">
+                    {project.title}
+                  </h3>
+                  <p className="mt-4 max-w-xl text-sm leading-tight tracking-tight">
+                    {project.summary}
+                  </p>
+                </Link>
               </article>
             ))}
           </div>

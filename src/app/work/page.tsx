@@ -60,9 +60,11 @@ export default function Work() {
                       height={520}
                       className="aspect-[1.55/1] w-full object-cover grayscale transition-[filter,transform] duration-700 group-hover:scale-[1.025] group-hover:grayscale-0 motion-reduce:transition-none"
                     />
-                    <span className="absolute left-4 top-4 text-xs font-semibold uppercase text-white [text-shadow:0_1px_16px_rgba(0,0,0,0.45)]">
-                      {project.year}
-                    </span>
+                    {"year" in project && project.year ? (
+                      <span className="absolute left-4 top-4 text-xs font-semibold uppercase text-white [text-shadow:0_1px_16px_rgba(0,0,0,0.45)]">
+                        {project.year}
+                      </span>
+                    ) : null}
                     <span className="absolute right-4 top-4 bg-white px-3 py-2 text-[10px] font-semibold uppercase tracking-tight text-brand">
                       {project.category}
                     </span>
