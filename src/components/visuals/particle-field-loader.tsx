@@ -48,7 +48,7 @@ function ParticleFieldFallback() {
     <div className="topographic-fallback absolute inset-0 opacity-80">
       <div className="topographic-dots absolute inset-0" />
       <div className="signal-ridge absolute inset-x-[-8%] bottom-[10%] h-32 rotate-[-4deg]" />
-      <div className="signal-ridge signal-ridge-muted absolute inset-x-[-12%] top-[18%] h-28 rotate-[7deg]" />
+      <div className="signal-ridge absolute inset-x-[-12%] top-[18%] h-28 rotate-[7deg] opacity-[0.34] blur-[1px]" />
     </div>
   );
 }
