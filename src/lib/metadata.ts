@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://beta.avarra.dev";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://avarra.dev";
 
 const socialImage = {
   url: "/logo.png",
@@ -13,12 +13,14 @@ type SiteMetadataInput = {
   title: string;
   description: string;
   path?: `/${string}`;
+  index?: boolean;
 };
 
 export function createSiteMetadata({
   title,
   description,
   path = "/",
+  index = false,
 }: SiteMetadataInput): Metadata {
   return {
     metadataBase: new URL(siteUrl),
@@ -28,13 +30,13 @@ export function createSiteMetadata({
       canonical: path,
     },
     robots: {
-      index: false,
-      follow: false,
-      nocache: true,
+      index,
+      follow: index,
+      nocache: !index,
       googleBot: {
-        index: false,
-        follow: false,
-        noimageindex: true,
+        index,
+        follow: index,
+        noimageindex: !index,
       },
     },
     openGraph: {
