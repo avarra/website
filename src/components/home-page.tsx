@@ -80,23 +80,28 @@ const translations = {
         },
       ],
     },
-    testimonials: {
-      heading: "What our clients say",
+    openSource: {
+      heading: "Open source",
+      intro:
+        "Aiken builds and maintains open-source libraries used by other developers. This is a growing list — more projects will land here over time.",
+      visitLabel: "Visit site",
+      githubLabel: "GitHub",
       items: [
         {
-          quote:
-            "The team found the heart of the product quickly and gave us a much clearer way to bring it to market.",
-          author: "Partner team, 2025",
+          name: "Gigatable",
+          tagline:
+            "A source-installed React data grid for TanStack Table with editable cells, range selection, Excel-compatible copy & paste, fill handles, virtualization, and undo/redo.",
+          url: "https://gigatable.dev",
+          repo: "https://github.com/aikenahac/gigatable",
+          tags: ["React", "TypeScript", "TanStack Table"],
         },
         {
-          quote:
-            "From the first concept to the final delivery, Avarra exceeded our expectations. The collaboration was clear, fast, and genuinely thoughtful—and the product was stronger for it.",
-          author: "Product lead, 2026",
-        },
-        {
-          quote:
-            "A rare mix of strategic thinking and practical delivery. We always knew what was happening and why.",
-          author: "Operations team, 2025",
+          name: "mapcn-rn",
+          tagline:
+            "Beautiful, accessible, and customizable map components for React Native, built on MapLibre and Mapbox.",
+          url: "https://mapcn-rn.dev",
+          repo: "https://github.com/aikenahac/mapcn-react-native",
+          tags: ["React Native", "MapLibre", "Mapbox"],
         },
       ],
     },
@@ -105,7 +110,7 @@ const translations = {
       navLabel: "Footer navigation",
       home: "Home",
       services: "Services",
-      work: "What clients say about us",
+      work: "Open source",
       contact: "Contact",
       language: "Language",
     },
@@ -182,23 +187,28 @@ const translations = {
         },
       ],
     },
-    testimonials: {
-      heading: "Kaj o nas pravijo stranke?",
+    openSource: {
+      heading: "Odprta koda",
+      intro:
+        "Aiken razvija in vzdržuje odprtokodne knjižnice, ki jih uporabljajo drugi razvijalci. Seznam se sproti širi — sčasoma bo tu več projektov.",
+      visitLabel: "Obišči stran",
+      githubLabel: "GitHub",
       items: [
         {
-          quote:
-            "Od prvega koncepta do končne izvedbe je ekipa presegla naša pričakovanja. Nova spletna stran je vizualno dovršena, hitra in uporabniku prijazna, že v prvih tednih pa smo opazili več povpraševanj in boljši odziv strank.",
-          author: "Marko, 2024",
+          name: "Gigatable",
+          tagline:
+            "Podatkovna tabela za React, zgrajena na TanStack Table, z urejanjem celic, izbiro obsegov, kopiranjem in lepljenjem, združljivim z Excelom, ročkami za polnjenje, virtualizacijo in razveljavitvijo.",
+          url: "https://gigatable.dev",
+          repo: "https://github.com/aikenahac/gigatable",
+          tags: ["React", "TypeScript", "TanStack Table"],
         },
         {
-          quote:
-            "Od prvega koncepta do končne izvedbe je ekipa presegla naša pričakovanja. Nova spletna stran je vizualno dovršena, hitra in uporabniku prijazna, že v prvih tednih pa smo opazili več povpraševanj in boljši odziv strank.",
-          author: "Marko, 2024",
-        },
-        {
-          quote:
-            "Od prvega koncepta do končne izvedbe je ekipa presegla naša pričakovanja. Nova spletna stran je vizualno dovršena, hitra in uporabniku prijazna, že v prvih tednih pa smo opazili več povpraševanj in boljši odziv strank.",
-          author: "Marko, 2024",
+          name: "mapcn/rn",
+          tagline:
+            "Lepe, dostopne in prilagodljive komponente zemljevidov za React Native, zgrajene na MapLibre in Mapbox.",
+          url: "https://mapcn-rn.dev",
+          repo: "https://github.com/aikenahac/mapcn-react-native",
+          tags: ["React Native", "MapLibre", "Mapbox"],
         },
       ],
     },
@@ -207,7 +217,7 @@ const translations = {
       navLabel: "Navigacija v nogi strani",
       home: "Domov",
       services: "Storitve",
-      work: "Kaj o nas pravijo stranke",
+      work: "Odprta koda",
       contact: "Kontakt",
       language: "Jezik",
     },
@@ -415,39 +425,67 @@ export function HomePage() {
         </section>
 
         <section
-          className="pt-40 pb-40 max-[900px]:pt-28 max-[680px]:pt-24 max-[680px]:pb-24"
-          aria-labelledby="testimonials-title"
+          id="open-source"
+          className={`${pageShell} pt-40 pb-40 max-[900px]:pt-28 max-[680px]:pt-24 max-[680px]:pb-24`}
+          aria-labelledby="open-source-title"
         >
-          <div className={pageShell}>
-            <h2 id="testimonials-title" className={sectionHeading}>
-              <span className="mr-2 font-extralight text-index">/03</span>{" "}
-              {copy.testimonials.heading}
-            </h2>
-          </div>
+          <h2 id="open-source-title" className={sectionHeading}>
+            <span className="mr-2 font-extralight text-index">/03</span>{" "}
+            {copy.openSource.heading}
+          </h2>
+          <p className="mt-6 max-w-xl text-base leading-tight tracking-tight max-[680px]:text-sm">
+            {copy.openSource.intro}
+          </p>
 
-          <div className={`${pageShell} mt-32 max-[680px]:mt-18`}>
-          <div className="grid grid-cols-[minmax(0,1fr)_minmax(0,1.3fr)_minmax(0,1fr)] items-stretch gap-8 max-[900px]:gap-6 max-[680px]:grid-cols-1">
-              {copy.testimonials.items.map((testimonial, index) => (
-                <blockquote
-                  className={`m-0 min-h-72 border px-8 py-7 text-white shadow-[0_22px_60px_rgba(97,38,18,0.1)] max-[680px]:min-h-64 max-[680px]:p-6 ${
-                  index === 1
-                    ? "-translate-y-6 border-brand bg-brand max-[680px]:translate-y-0"
-                      : "border-brand/35 bg-brand-soft/75 backdrop-blur-md max-[680px]:hidden"
-                  }`}
-                  key={index}
-                >
-                  <span className="block text-[66px] leading-[0.75] font-semibold">
-                    “
-                  </span>
-                  <p className="mt-7 max-w-2xl text-lg leading-[1.13] font-medium tracking-tight max-[680px]:mt-5 max-[680px]:text-sm">
-                    {testimonial.quote}
+          <div className="mt-14 grid grid-cols-2 gap-6 max-[680px]:mt-9 max-[680px]:grid-cols-1 max-[680px]:gap-3.5">
+            {copy.openSource.items.map((project) => (
+              <article
+                key={project.name}
+                className="glass-panel flex flex-col justify-between border border-brand p-6 shadow-[0_18px_50px_rgba(97,38,18,0.05)] transition-transform duration-300 hover:-translate-y-1 max-[680px]:p-5 motion-reduce:transition-none"
+              >
+                <div>
+                  <h3
+                    className={`${scriptFont} m-0 text-[clamp(28px,2.4vw,40px)] leading-[0.9]`}
+                  >
+                    {project.name}
+                  </h3>
+                  <p className="mt-6 max-w-xl text-base leading-tight tracking-tight max-[680px]:mt-4 max-[680px]:text-sm">
+                    {project.tagline}
                   </p>
-                  <cite className="mt-4 block text-xs not-italic uppercase opacity-70">
-                    {testimonial.author}
-                  </cite>
-                </blockquote>
-              ))}
-            </div>
+                  <ul className="mt-5 flex flex-wrap gap-2">
+                    {project.tags.map((tag) => (
+                      <li
+                        key={tag}
+                        className="border border-brand/35 bg-brand-soft/60 px-2.5 py-1 text-[11px] font-semibold tracking-tight text-brand uppercase"
+                      >
+                        {tag}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="mt-8 flex items-center gap-5">
+                  <a
+                    href={project.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    className={orangeButton}
+                    data-cursor-label="Visit"
+                  >
+                    {copy.openSource.visitLabel}
+                  </a>
+                  <a
+                    href={project.repo}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-sm font-semibold tracking-tight text-ink underline decoration-brand/40 underline-offset-4 transition-colors duration-200 hover:text-brand"
+                    data-cursor-label="GitHub"
+                  >
+                    {copy.openSource.githubLabel} ↗
+                  </a>
+                </div>
+              </article>
+            ))}
           </div>
         </section>
       </main>
@@ -461,9 +499,9 @@ export function HomePage() {
           className={`${pageShell} grid grid-cols-2 items-start gap-10 max-[680px]:grid-cols-1 max-[680px]:gap-8`}
         >
           <Link
-            href="#testimonials-title"
+            href="#open-source-title"
             className="group relative block max-w-xl overflow-hidden max-[680px]:max-w-none"
-            data-cursor-label="Stories"
+            data-cursor-label="Projects"
           >
             <div className="relative aspect-[2.02/1] overflow-hidden bg-brand-deep">
               <Image
@@ -488,7 +526,7 @@ export function HomePage() {
               <Link href="/services" className={footerNavLink} data-cursor-label="View">
                 {copy.footer.services}
               </Link>
-              <Link href="#testimonials-title" className={footerNavLink} data-cursor-label="Read">
+              <Link href="#open-source-title" className={footerNavLink} data-cursor-label="Explore">
                 {copy.footer.work}
               </Link>
               <a href="mailto:hello@avarra.dev" className={footerNavLink} data-cursor-label="Email">
